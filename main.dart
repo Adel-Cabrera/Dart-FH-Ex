@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+
 void main() {
 
   // Strings & numbers 
@@ -96,8 +99,31 @@ void main() {
   print(wolverine.nombre);
   print(wolverine.toString());
 
+  // Constructores con nombre
+
+
+  final rawJson = '{"nombre": "Magneto","poder": "Magnetismo" }';
+
+
+  Map parsedJson = json.decode(rawJson);
+
+  // print(parsedJson);
+
+  Heroe magneto = new Heroe.fromJson(parsedJson);
+
+  print(magneto);
+
+  Cuadrado cuadrado = new Cuadrado();
+  cuadrado.lado = 10;
+  
+  print(cuadrado);
+  print(cuadrado.area);
+
+
 
 }
+
+ /// END OF MAIN();
 
   String saludar({String text, String name}){
     //print("Hola");
@@ -120,6 +146,13 @@ void main() {
     this.poder = poder;
     }
 
+    // Constructores con nombre
+
+    Heroe.fromJson(Map parsedJson){
+      nombre = parsedJson['nombre'];
+      poder = parsedJson['poder'];
+    }
+
     String toString(){
       return '${this.nombre} ${this.poder}';
     }
@@ -127,6 +160,29 @@ void main() {
 
   // Forma corta de definir propiedades de las clases
 
-  
-  
 
+    /// Heroe({this nombre, this poder = 'Garras'});
+  
+    /* String toString() => '$nombre $poder'; */
+
+  // Getters y Setters
+
+  class Cuadrado{
+    double _lado;
+    // double _area;
+
+    set lado(double valor){
+      if(valor <= 0){
+        throw('El lado no puede ser menor o igual a 0');
+      }
+
+      _lado = valor;
+    }
+
+    toString() => 'Lado : $_lado';
+
+    double get area{
+      return _lado * _lado;
+    }
+
+  }
