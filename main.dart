@@ -58,7 +58,47 @@ void main() {
 
   // Tipo de dato Map
 
-  
+  Map<String, dynamic> persona = {
+    'nombre': 'Carlos',
+    'edad': 32,
+    'soltero': true,
+  };
+
+  print(persona);
+  print(persona.runtimeType);
+  print(persona['nombre']);
+
+  Map<int, String> personas ={
+1: 'Tony',
+2: 'Peter',
+3: 'Strange',
+  };
+
+  personas.addAll({4: 'Banner'});
+
+  print(personas);
+  print(personas[3]);
+  print(personas.runtimeType);
+
+  // Funciones en Dart
+  var saludo = "Hola";
+  var names = "Darkonnen";
+  String mensaje = saludar(text: saludo, name: names);
+  String mensajeDos = saludarDos(text: saludo, name: names);
+
+  print(mensaje);
+  print(mensajeDos);
 
 
 }
+
+  String saludar({String text, String name}){
+    //print("Hola");
+    return "$text | $name";
+  }
+
+    String saludarDos({String text, String name}) =>
+    //print("Hola");
+    "$text | $name";
+  
+
