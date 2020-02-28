@@ -89,6 +89,13 @@ void main() {
   print(mensaje);
   print(mensajeDos);
 
+  Heroe wolverine = new Heroe( nombre: 'Logan'/*, poder: 'Regeneración'*/);
+
+  print(wolverine);
+  print(wolverine.poder);
+  print(wolverine.nombre);
+  print(wolverine.toString());
+
 
 }
 
@@ -100,5 +107,26 @@ void main() {
     String saludarDos({String text, String name}) =>
     //print("Hola");
     "$text | $name";
+
+  // Clases
+
+  class Heroe {
+    // Propiedades
+    String nombre;
+    String poder;
+
+    Heroe({String nombre, String poder = 'Garras'}){
+    this.nombre = nombre;
+    this.poder = poder;
+    }
+
+    String toString(){
+      return '${this.nombre} ${this.poder}';
+    }
+  }
+
+  // Forma corta de definir propiedades de las clases
+
+  
   
 
