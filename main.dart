@@ -137,7 +137,13 @@ void main() {
   pato.volar();
   pato.caminar();
 
+  print('A punto de pedir datos');
 
+  httpGet('http://google.com/api').then((data){
+    print(data);
+  });
+
+  print('Última línea');
 }
 
  /// END OF MAIN();
@@ -285,3 +291,11 @@ class PezVolador extends Pez with Nadador, Volador{
 
 }
 
+
+// Futures - Async | Await
+
+Future<String> httpGet(String url){
+  return Future.delayed(new Duration(seconds: 4), (){
+    return 'hola Mundo';
+  });
+}
