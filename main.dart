@@ -120,6 +120,12 @@ void main() {
   print(cuadrado.area);
 
 
+  // Animal perro = new Animal(); no se puede con clases abstractas
+
+  Perro perro = new Perro();
+  perro.emitirSonido();
+
+
 
 }
 
@@ -184,5 +190,20 @@ void main() {
     double get area{
       return _lado * _lado;
     }
+
+  }
+
+  // Clases abstractas
+
+  abstract class Animal {
+    int patas;
+    void emitirSonido();
+  }
+
+  class Perro implements Animal {
+    int patas;
+    int colas;
+
+    void emitirSonido() => print('guau') ;
 
   }
