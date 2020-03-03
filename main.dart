@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 
-void main() {
+void main() async{
 
   // Strings & numbers 
 
@@ -144,6 +144,11 @@ void main() {
   });
 
   print('Última línea');
+
+  String data = await httpGet('http://google.com/api');
+
+  print(data);
+
 }
 
  /// END OF MAIN();
@@ -292,10 +297,14 @@ class PezVolador extends Pez with Nadador, Volador{
 }
 
 
-// Futures - Async | Await
+// Future
 
 Future<String> httpGet(String url){
   return Future.delayed(new Duration(seconds: 4), (){
     return 'hola Mundo';
   });
 }
+
+// Async | Await
+
+// Solo funciona si la función en la que está el await, es async. EN este caso mi función Main() ahora es async.
