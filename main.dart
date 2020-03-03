@@ -125,6 +125,17 @@ void main() {
   Perro perro = new Perro();
   perro.emitirSonido();
 
+  HeroeDos heroe = new HeroeDos();
+  heroe.nombre = "Hércules";
+
+
+  Villano villano = new Villano();
+  villano.nombre = "Darko";
+
+  Pato pato = new Pato();
+  pato.nadar();
+  pato.volar();
+  pato.caminar();
 
 
 }
@@ -207,3 +218,70 @@ void main() {
     void emitirSonido() => print('guau') ;
 
   }
+
+  abstract class Personaje {
+    String poder;
+    String nombre;
+  
+  }
+
+  class HeroeDos extends Personaje {
+    int valentia;
+  
+  }
+
+  class Villano extends Personaje {
+  int maldad;
+  
+  }
+
+  // Mixins
+
+  abstract class Animalia{}
+
+  abstract class Mamifero extends Animalia{}
+
+  abstract class Ave extends Animalia{}
+
+  abstract class Pez extends Animalia{}
+
+  abstract class Volador{
+    void volar() => print('Estoy volando');
+  }
+
+  abstract class Caminante{
+    void caminar() => print('Estoy caminando');
+  }
+
+  abstract class Nadador{
+    void nadar() => print('Estoy nadando');
+  }
+
+class Delfin extends Mamifero with Nadador{
+
+}
+
+class Murcielago extends Mamifero with Caminante, Volador{
+  
+}
+
+class Gato extends Mamifero with Caminante{
+
+}
+
+class Paloma extends Ave with Volador, Caminante {
+
+}
+
+class Pato extends Ave with Volador, Caminante, Nadador{
+
+}
+
+class Tiburon extends Pez with Nadador{
+
+}
+
+class PezVolador extends Pez with Nadador, Volador{
+
+}
+
